@@ -1,0 +1,52 @@
+{% extends 'hospital/admin_base.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+</head>
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title">Front Desk Operators</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Username</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      {% for d in fdo %}
+      <tr>
+
+        <td>{{d.first_name}}</td>
+        <td>{{d.last_name}}</td>
+        <td>{{d.username}}</td>
+        <td><a class="btn btn-danger btn-xs" href="{% url 'delete-fdo-from-hospital' d.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,53 @@
+{% extends 'hospital/deo_base.html' %}
+{% block content %}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+</head>
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title">Tests</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+          <th>Patient Name</th>
+          <th>Doctor Name</th>
+          <th>Test Name</th>
+          <th>Date</th>
+          <th>Update</th>
+          <th>Send Email</th>
+        </tr>
+      </thead>
+      {% for t in tests %}
+      <tr>
+        <td>{{t.patientName}}</td>
+        <td> {{t.doctorName}}</td>
+        <td>{{t.testName}}</td>
+        <td>{{t.testDate}}</td>
+        <td><a class="btn btn-primary btn-xs" href="{% url 'deo-update-test' t.id  %}"><span class="glyphicon glyphicon-edit"></span></a></td>
+        <td><a class="btn btn-primary btn-xs" href="{% url 'deo-send-mail' t.id  %}"><span class="glyphicon glyphicon-edit"></span></a></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+{% endblock content %}

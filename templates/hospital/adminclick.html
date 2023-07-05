@@ -1,0 +1,19 @@
+{% extends 'hospital/homebase.html' %}
+{% block content %}
+
+<br>
+<br>
+<body style="background-color: rgb(0, 0, 0);">
+<div class="jumbotron" style="margin-bottom:0px; background-color: rgb(0, 0, 0);margin-top: 100px;">
+  <h1 class="display-4" style="text-align:center; color: white;">Hello, Admin</h1>
+  <br>
+  <p class="lead" style="text-align:center; color: white;">Welcome to Hospital Management System.</p>
+  <hr class="my-4">
+  <p style="text-align:center; color: white;">You can access various features after Login/SignUp.</p>
+  <p class="lead" style="text-align:center;">
+    <a class="btn btn-primary btn-lg" href="/adminsignup" role="button" style=" background: #d12929; border: #d12929;">SignUp</a>
+    <a class="btn btn-primary btn-lg" href="/adminlogin" role="button"  style=" background: #d12929; border: #d12929;"   >Login</a>
+  </p>
+</div>
+</body>
+{% endblock content %}
